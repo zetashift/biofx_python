@@ -18,3 +18,9 @@ rich
 tabulate
 yapf
 seqmagick
+
+# required with setup.nix approach to cope with implicit dependencies from nixpkgs
+
+aiohttp
+bottleneck
+setuptools-scm==5.0.2

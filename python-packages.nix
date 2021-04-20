@@ -109,6 +109,27 @@ self: super: {
       self."sqlalchemy"
     ];
   };
+  "aiohttp" = super.buildPythonPackage rec {
+    pname = "aiohttp";
+    version = "3.7.4.post0";
+    src = fetchurl {
+      url = "https://files.pythonhosted.org/packages/99/f5/90ede947a3ce2d6de1614799f5fea4e93c19b6520a59dc5d2f64123b032f/aiohttp-3.7.4.post0.tar.gz";
+      sha256 = "1kzyg94qi264rpzxs4a9x2lg3amvrz6yl6cqdg3agxg5xfck4ga9";
+    };
+    format = "setuptools";
+    doCheck = false;
+    buildInputs = [];
+    checkInputs = [];
+    nativeBuildInputs = [];
+    propagatedBuildInputs = [
+      self."async-timeout"
+      self."attrs"
+      self."chardet"
+      self."multidict"
+      self."typing-extensions"
+      self."yarl"
+    ];
+  };
   "appdirs" = super.buildPythonPackage rec {
     pname = "appdirs";
     version = "1.4.4";
@@ -139,6 +160,20 @@ self: super: {
       self."lazy-object-proxy"
       self."wrapt"
     ];
+  };
+  "async-timeout" = super.buildPythonPackage rec {
+    pname = "async-timeout";
+    version = "3.0.1";
+    src = fetchurl {
+      url = "https://files.pythonhosted.org/packages/e1/1e/5a4441be21b0726c4464f3f23c8b19628372f606755a9d2e46c187e65ec4/async_timeout-3.0.1-py3-none-any.whl";
+      sha256 = "18wy5w0wk37ikx9n5yc8s9746bgqz3wdddbc1d6jfz98glcwm4a2";
+    };
+    format = "wheel";
+    doCheck = false;
+    buildInputs = [];
+    checkInputs = [];
+    nativeBuildInputs = [];
+    propagatedBuildInputs = [];
   };
   "attrs" = super.buildPythonPackage rec {
     pname = "attrs";
@@ -195,6 +230,35 @@ self: super: {
       self."toml"
       self."typed-ast"
       self."typing-extensions"
+    ];
+  };
+  "bottleneck" = super.buildPythonPackage rec {
+    pname = "bottleneck";
+    version = "1.3.2";
+    src = fetchurl {
+      url = "https://files.pythonhosted.org/packages/5b/08/278c6ee569458e168096f6b51019cc1c81c288da3d1026a22ee2ccead102/Bottleneck-1.3.2.tar.gz";
+      sha256 = "0wz5320jx3n4q2nsvwvc7cpi66b46qbals9v53m955rmcq5ry5r0";
+    };
+    format = "setuptools";
+    doCheck = false;
+    buildInputs = [];
+    checkInputs = [];
+    nativeBuildInputs = [
+      self."setuptools"
+      self."wheel"
+      self."numpy"
+      self."numpy"
+      self."numpy"
+      self."numpy"
+      self."numpy"
+      self."numpy"
+      self."numpy"
+      self."numpy"
+      self."numpy"
+      self."numpy"
+    ];
+    propagatedBuildInputs = [
+      self."numpy"
     ];
   };
   "certifi" = super.buildPythonPackage rec {
@@ -499,6 +563,20 @@ self: super: {
       sha256 = "0hhdp0srgrv4bmzlzvmk67zrqr9cvkjjzgd4gmkvd90dhrc652mb";
     };
     format = "wheel";
+    doCheck = false;
+    buildInputs = [];
+    checkInputs = [];
+    nativeBuildInputs = [];
+    propagatedBuildInputs = [];
+  };
+  "multidict" = super.buildPythonPackage rec {
+    pname = "multidict";
+    version = "5.1.0";
+    src = fetchurl {
+      url = "https://files.pythonhosted.org/packages/1c/74/e8b46156f37ca56d10d895d4e8595aa2b344cff3c1fb3629ec97a8656ccb/multidict-5.1.0.tar.gz";
+      sha256 = "1mc4dqjj7s7gbb0bkpwy5cn7kz1cd6x101zwxzrxsdrs5prfbd15";
+    };
+    format = "setuptools";
     doCheck = false;
     buildInputs = [];
     checkInputs = [];
@@ -984,10 +1062,10 @@ self: super: {
   };
   "setuptools-scm" = super.buildPythonPackage rec {
     pname = "setuptools-scm";
-    version = "6.0.1";
+    version = "5.0.2";
     src = fetchurl {
-      url = "https://files.pythonhosted.org/packages/c4/d5/e50358c82026f44cd8810c8165002746cd3f8b78865f6bcf5d7f0fe4f652/setuptools_scm-6.0.1-py3-none-any.whl";
-      sha256 = "0p4i5nypfdqzjlmlkwvy45107y7kpq3x9s5zq2jl9vwd3iq5zgf3";
+      url = "https://files.pythonhosted.org/packages/6a/18/23ad8654c5c8d91d1238b2d52882e50152473f2bd2db0da60215b51f401b/setuptools_scm-5.0.2-py2.py3-none-any.whl";
+      sha256 = "0d3by5bk5l57s63gfba2lv28hi147kmrmy29fl8kw42cywvlwp5x";
     };
     format = "wheel";
     doCheck = false;
@@ -1153,5 +1231,22 @@ self: super: {
     checkInputs = [];
     nativeBuildInputs = [];
     propagatedBuildInputs = [];
+  };
+  "yarl" = super.buildPythonPackage rec {
+    pname = "yarl";
+    version = "1.6.3";
+    src = fetchurl {
+      url = "https://files.pythonhosted.org/packages/97/e7/af7219a0fe240e8ef6bb555341a63c43045c21ab0392b4435e754b716fa1/yarl-1.6.3.tar.gz";
+      sha256 = "045z4ssg8g5h0qhz8hnx74hswgkndaldqq1xi5l1n5s0j996d44a";
+    };
+    format = "setuptools";
+    doCheck = false;
+    buildInputs = [];
+    checkInputs = [];
+    nativeBuildInputs = [];
+    propagatedBuildInputs = [
+      self."idna"
+      self."multidict"
+    ];
   };
 }
