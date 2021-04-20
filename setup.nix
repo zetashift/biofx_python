@@ -129,6 +129,7 @@ in rec {
 
   inherit buildPython targetPython;
 
+  python = targetPython.withPackages(ps: map (name: getAttr name ps) requirementsNames);
   # final env with packages in requirements.txt
   env = pkgs.buildEnv {
     name = "env";
@@ -139,7 +140,7 @@ in rec {
 
   shell = pkgs.mkShell {
     buildInputs = [
-      (targetPython.withPackages(ps: map (name: getAttr name ps) requirementsNames))
+      python
     ];
   };
 }
