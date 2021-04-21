@@ -10,7 +10,8 @@ TEST1 = ('./tests/inputs/input1.txt', '1 2 3 4')
 TEST2 = ('./tests/inputs/input2.txt', '20 12 17 21')
 TEST3 = ('./tests/inputs/input3.txt', '196 231 237 246')
 
-
+# Function name has to start with `test_` for pytest
+# to find the test
 # --------------------------------------------------
 def test_exists() -> None:
     """ Program exists """
@@ -44,7 +45,7 @@ def test_arg() -> None:
     for file, expected in [TEST1, TEST2, TEST3]:
         dna = open(file).read()
         retval, out = getstatusoutput(f'{RUN} {dna}')
-        assert retval == 0
+        assert retval == 0 # 0 indicates a success, no errors
         assert out == expected
 
 
